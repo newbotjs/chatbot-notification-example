@@ -1,0 +1,12 @@
+@Event('start')
+@Intent(/test/)
+start() {
+    date = prompts.time('Give me a date')
+    notification(date)
+    > Thanks
+}
+
+@Event('on', 'notification')
+onNotification() {
+    > Ok ! Date is { :event.date }
+}
