@@ -1,10 +1,26 @@
 @Event('start')
-@Intent(/test/)
 start() {
     date = prompts.time('Give me a date')
     notification(date)
     > Thanks
 }
+
+/**
+    Example to use with NewBout Cloud
+*/
+@Intent('reminder', [
+    'set up a reminder'
+])
+reminder() {
+    date = :intent.time.value
+    if (unknown date) {
+        > Please, give me a date
+        return false
+    }
+    notification(date.value)
+    > Thanks
+}
+// ---
 
 @Event('on', 'notification')
 onNotification() {

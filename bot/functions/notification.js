@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 export function notification(date) {
-    const { user, data } = this.converse
-    const { source, address } = data.session.message
+    const { data } = this.converse
+    const { source, address, user } = data.session.message
     return axios({
         url: process.env.SERVER_URL + '/notification',
         method: 'POST',
